@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuildRight Research — Project Intake</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FAFAF8;
+    color: #1A1A18;
+    padding: 48px 24px;
+  }
+
+  .page {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #E2E0D8;
+  }
+
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1A1A18;
+  }
+
+  .brand span { color: #2D6A4F; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9A9A94;
+  }
+
+  .intro {
+    margin-bottom: 36px;
+  }
+
+  .intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1A1A18;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .intro p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #6B6B67;
+    line-height: 1.7;
+  }
+
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9A9A94;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E2E0D8;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1A1A18;
+    margin-bottom: 6px;
+  }
+
+  .sublabel {
+    font-size: 12px;
+    font-weight: 300;
+    color: #9A9A94;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #1A1A18;
+    background: #fff;
+    border: 1px solid #E2E0D8;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+    border-radius: 0;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #2D6A4F;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.6;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9A94' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid #E2E0D8;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .radio-option:hover {
+    border-color: #B8B8B2;
+  }
+
+  .radio-option input[type="radio"] {
+    width: auto;
+    margin-top: 2px;
+    accent-color: #2D6A4F;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .radio-label {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1A1A18;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .radio-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: #9A9A94;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid #E2E0D8;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .checkbox-option input[type="checkbox"] {
+    width: auto;
+    accent-color: #2D6A4F;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .checkbox-label {
+    font-size: 13px;
+    font-weight: 300;
+    color: #1A1A18;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .submit-section {
+    padding-top: 28px;
+    border-top: 1px solid #E2E0D8;
+    margin-top: 8px;
+  }
+
+  .submit-note {
+    font-size: 12px;
+    font-weight: 300;
+    color: #9A9A94;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: #1A1A18;
+    color: #F0EFE8;
+    border: none;
+    padding: 15px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .submit-btn:hover {
+    background: #2D6A4F;
+  }
+
+  .confirmation {
+    display: none;
+    text-align: center;
+    padding: 40px 24px;
+    border: 1px solid #E2E0D8;
+    background: #fff;
+    margin-top: 20px;
+  }
+
+  .confirmation h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1A1A18;
+    margin-bottom: 10px;
+  }
+
+  .confirmation p {
+    font-size: 13px;
+    font-weight: 300;
+    color: #6B6B67;
+    line-height: 1.7;
+  }
+
+  .conf-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #EAF4EE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 500px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="brand">Build<span>Right</span> Research</div>
+    <div class="label">Project Intake</div>
+  </div>
+
+  <div class="intro">
+    <h1>Tell me about your project</h1>
+    <p>Fill this out and I'll confirm your order within a few hours. The more detail you provide, the sharper the final deliverable. Nothing here is set in stone — we can refine scope before I start.</p>
+  </div>
+
+  <form id="form-wrap" action="https://formspree.io/f/xlgokegn" method="POST">
+
+    <div class="section">
+      <div class="section-label">01 &nbsp; About you</div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>Your name</label>
+          <input type="text" name="name" placeholder="First name is fine" />
+        </div>
+        <div class="field">
+          <label>Best way to reach you</label>
+          <input type="text" name="contact" placeholder="Reddit username, email, etc." />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What kind of work do you do?</label>
+        <div class="sublabel">Helps me frame the research to your context.</div>
+        <input type="text" name="occupation" placeholder="e.g. small business owner, attorney, real estate investor, startup founder..." />
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">02 &nbsp; What you need</div>
+
+      <div class="field">
+        <label>Report type</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="report_type" value="brief" />
+            <div>
+              <div class="radio-label">Research Brief — $120</div>
+              <div class="radio-desc">Focused answer to one specific question. 800–1,200 words.</div>
+            </div>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="report_type" value="full" />
+            <div>
+              <div class="radio-label">Full Analysis Report — $200</div>
+              <div class="radio-desc">Deep competitive, market, or legal analysis. 1,800–2,500 words.</div>
+            </div>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="report_type" value="deep" />
+            <div>
+              <div class="radio-label">Comprehensive Deep Dive — $350</div>
+              <div class="radio-desc">Investor or litigation-grade research. 3,500–5,000 words.</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What category does this fall under?</label>
+        <select name="category">
+          <option>Market research / sizing</option>
+          <option>Legal research / memo</option>
+          <option>Due diligence</option>
+          <option>Business strategy</option>
+          <option>Industry overview</option>
+          <option>Other — I'll explain below</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">03 &nbsp; The actual request</div>
+
+      <div class="field">
+        <label>Describe what you need researched</label>
+        <div class="sublabel">Be as specific as possible. Name competitors, industries, geographies, legal questions, or anything else relevant.</div>
+        <textarea name="research_request" placeholder="e.g. I run a small landscaping company in Phoenix and want to understand how competitors in my area are pricing commercial contracts. I need to know their rates, how they structure bids, and where I might be leaving money on the table."></textarea>
+      </div>
+
+      <div class="field">
+        <label>What decision is this research supporting?</label>
+        <div class="sublabel">Knowing the end use helps me prioritize what matters.</div>
+        <textarea name="decision_context" style="min-height: 72px;" placeholder="e.g. Deciding whether to expand into commercial contracts, presenting to a potential investor, preparing for a legal dispute..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Who is the audience for this report?</label>
+        <select name="audience">
+          <option>Business partner or co-founder</option>
+          <option>Investor or lender</option>
+          <option>Attorney or legal team</option>
+          <option>Client or customer</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">04 &nbsp; Scope and format</div>
+
+      <div class="field">
+        <label>Are there specific sources or competitors you want included?</label>
+        <div class="sublabel">Optional — leave blank if you want me to determine this.</div>
+        <textarea name="sources" style="min-height: 72px;" placeholder="e.g. Please include LawnStarter, Jobber, and any IBIS World data on landscaping. Avoid sources behind paywalls."></textarea>
+      </div>
+
+      <div class="field">
+        <label>What should the output include?</label>
+        <div class="sublabel">Check all that apply.</div>
+        <div class="checkbox-group">
+          <label class="checkbox-option">
+            <input type="checkbox" name="include_exec_summary" value="yes" checked />
+            <span class="checkbox-label">Executive summary at the top</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="include_data_tables" value="yes" />
+            <span class="checkbox-label">Data tables or pricing comparisons</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="include_irac" value="yes" />
+            <span class="checkbox-label">IRAC format (for legal memos)</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="include_recommendations" value="yes" />
+            <span class="checkbox-label">Actionable recommendations section</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="include_citations" value="yes" />
+            <span class="checkbox-label">Source list / citations at the end</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Preferred file format</label>
+        <select name="file_format">
+          <option>Word document (.docx)</option>
+          <option>PDF</option>
+          <option>No preference</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">05 &nbsp; Timeline and anything else</div>
+
+      <div class="field">
+        <label>When do you need this?</label>
+        <select name="timeline">
+          <option>Rush — same day or next morning (+$75)</option>
+          <option>Flexible — within a week</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Anything else I should know?</label>
+        <div class="sublabel">Context about your industry, prior research you've done, things to avoid, tone preferences, etc.</div>
+        <textarea name="additional_notes" style="min-height: 72px;" placeholder="Optional but helpful..."></textarea>
+      </div>
+    </div>
+
+    <div class="submit-section">
+      <div class="submit-note">
+        Once submitted, I'll review your request and follow up within a few hours to confirm scope and send a payment link. No charge until you approve the brief.
+      </div>
+      <button class="submit-btn" type="submit">Submit project request →</button>
+    </div>
+
+  </form>
+
+  <div class="confirmation" id="confirmation">
+    <div class="conf-dot">✓</div>
+    <h2>Request received</h2>
+    <p>I'll review your project details and follow up within a few hours to confirm scope and next steps. No payment required until you approve the brief.</p>
+  </div>
+
+</div>
+
+
+</body>
+</html>
